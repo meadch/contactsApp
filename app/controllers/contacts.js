@@ -38,6 +38,10 @@ App.controller('ContactsController', [
                 })
         }
 
+        _this.removeContact = (contact) => {
+          ContactsFactory.deleteContact(contact);
+        }
+
         // MODAL BEHAVIOR
 
         _this.openModal = (contact) => {
@@ -51,9 +55,12 @@ App.controller('ContactsController', [
                 }
             });
 
-            modalInstance.result.then(function(thing) {
-                $location.path('/');
-            }, function() {
+            modalInstance.result.then((contact) => {
+                ContactsFactory.updateContact(contact)
+                  .then(()=>{
+                    $location.path('/');
+                  })
+            }, () => {
                 $location.path('/');
             });
         }
@@ -61,15 +68,11 @@ App.controller('ContactsController', [
     }])
     .controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'contact', function($scope, $modalInstance, contact) {
 
-        $scope.contact = contact;
+        $scope.contact = Object.assign({}, contact)
 
-        $scope.reposition = function() {
-            $modalInstance.reposition();
-        };
-
-        $scope.ok = function() {
-            $modalInstance.close($scope.contact);
-        };
+        $scope.updateContact = () => {
+          $modalInstance.close($scope.contact);
+        }
 
         $scope.cancel = function() {
             $modalInstance.dismiss();

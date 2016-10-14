@@ -1,3 +1,3 @@
 # Contacts App
 
-Built w/ Angular.js and Firebase. Foundation for styling. 
+Built w/ Angular and Firebase. Uses Foundation CSS framework, including modal integration w/ Angular. 

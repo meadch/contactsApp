@@ -1,37 +1,38 @@
 <div>
     <script type="text/ng-template" id="myModalContent.html">
-      <form>
+      <form ng-submit="updateContact()">
           <h3>Edit Contact</h3>
           <!-- Add Form -->
           <div class="row">
               <div class="large-6 columns">
                   <label>Name:
-                      <input type="text" ng-model="ContactsCtrl.newContact.name" placeholder="Contact Name" required />
+                      <input type="text" ng-model="contact.name" value="{{contact.name}}" required />
                   </label>
               </div>
               <div class="large-6 columns">
                   <label>Email:
-                      <input type="text" ng-model="ContactsCtrl.newContact.email" placeholder="Contact Email" required />
+                      <input type="text" ng-model="contact.email" value="{{contact.email}}" required />
                   </label>
               </div>
           </div>
           <div class="row">
               <div class="large-6 columns">
                   <label>City:
-                      <input type="text" ng-model="ContactsCtrl.newContact.city" placeholder="City" />
+                      <input type="text" ng-model="contact.city" value="{{contact.city}}" />
                   </label>
               </div>
               <div class="large-6 columns">
                   <label>State:
-                      <input type="text" ng-model="ContactsCtrl.newContact.state" placeholder="State" />
+                      <input type="text" ng-model="contact.state" value="{{contact.state}}" />
                   </label>
               </div>
           </div>
           <div class="row">
               <div class="large-12 columns">
-                  <input type="submit" value="Edit Contact" class="button" />
+                  <input type="submit" value="Update Contact" class="button" />
               </div>
           </div>
       </form>
+      <a class="close-reveal-modal" ng-click="cancel()">&#215;</a>
     </script>
 </div>
