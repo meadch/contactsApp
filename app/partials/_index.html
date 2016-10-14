@@ -1,1 +1,30 @@
-
+<div class="row">
+    <div class="large-10 columns">
+        <div ng-include="'partials/_addForm.html'"></div>
+        <div ng-include="'partials/_modal.html'"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="200px">Name</th>
+                    <th width="200px;">City/State</th>
+                    <th width="25%;">Email</th>
+                    <th width="25%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contact in ContactsCtrl.contacts">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.city}}, {{contact.state}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>
+                        <a class="button tiny" ng-click="ContactsCtrl.openModal(contact)">Edit</a>
+                        <a class="button tiny alert" ng-click="removeContact(contact)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="large-2 columns">
+        <a href="" class="button large {{ContactsCtrl.addFormShow.className}}" ng-click='ContactsCtrl.toggleAddForm()'>{{ContactsCtrl.addFormShow.symbol }}</a>
+    </div>
+</div>
