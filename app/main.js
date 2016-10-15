@@ -13,6 +13,6 @@ firebase.initializeApp(config);
 const App = angular.module('ContactsModule', ['ngRoute', 'firebase', 'mm.foundation'])
 .config( ($routeProvider)=>{
   $routeProvider
-    .when('/', { templateUrl: 'partials/_index.html', controller: 'ContactsController', controllerAs: 'ContactsCtrl'} )
+    .when('/', { templateUrl: 'contacts/partials/_index.html', controller: 'ContactsController', controllerAs: 'ContactsCtrl'} )
     .otherwise( { redirectTo: '/' })
 })
