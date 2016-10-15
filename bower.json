@@ -19,6 +19,7 @@
     "foundation": "^5.5.3",
     "angular-route": "^1.5.8",
     "firebase": "^3.4.1",
-    "angularfire": "^2.0.2"
+    "angularfire": "^2.0.2",
+    "angular-foundation": "^0.8.0"
   }
 }
